@@ -1,0 +1,11 @@
+<div class="navbar-right" data-ng-controller="mvNavBarLoginCtrl">
+    <form class="navbar-form" action="">
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Epost" data-ng-model="username"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" placeholder="Lösenord" data-ng-model="password"/>
+        </div>
+        <button class="btn btn-primary" data-ng-click="signin(username, password)">Logga in</button>
+    </form>
+</div>

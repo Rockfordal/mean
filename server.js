@@ -3,7 +3,7 @@ var express = require('express'),
     doT = require('express-dot'),
     mongoose = require('mongoose'),
     fs = require('fs');
-var env = process.env.NODE_ENV || 'development';
+//var env = process.env.NODE_ENV || 'development';
 var app = express();
 
 function compile(str, path){
@@ -15,17 +15,17 @@ doT.setGlobals({
 });
 
 doT.setTemplateSettings({
-    evaluate:    /\<\%([\s\S]+?)\%\>/g,
-    interpolate: /\<\%=([\s\S]+?)\%\>/g,
-    encode:      /\<\%!([\s\S]+?)\%\>/g,
-    use:         /\<\%#([\s\S]+?)\%\>/g,
-    define:      /\<\%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\%\>/g,
-    conditional: /\<\%\?(\?)?\s*([\s\S]*?)\s*\%\>/g,
-    iterate:     /\<\%~\s*(?:\}\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\%\>)/g,
+    evaluate:    /<%([\s\S]+?)%>/g,
+    interpolate: /<%=([\s\S]+?)%>/g,
+    encode:      /<%!([\s\S]+?)%>/g,
+    use:         /<%#([\s\S]+?)%>/g,
+    define:      /<%##\s*([\w\.$]+)\s*(:|=)([\s\S]+?)#%>/g,
+    conditional: /<%\?(\?)?\s*([\s\S]*?)\s*%>/g,
+    iterate:     /<%~\s*(?:\}\}|([\s\S]+?)\s*:\s*([\w$]+)\s*(?::\s*([\w$]+))?\s*%>)/g,
     varname: 'it',
     strip: true,
     append: true,
-    selfcontained: false,
+    selfcontained: false
 });
 
 app.configure(function(){
@@ -48,20 +48,16 @@ db.on('error', console.error.bind(console, 'connection error...'));
 db.once('open', function callback() {
     console.log('multivision db opened');
 });
-var messageSchema = mongoose.Schema({message: String});
-var Message = mongoose.model('Message', messageSchema);
 
+//var messageSchema = mongoose.Schema({message: String});
+//var Message = mongoose.model('Message', messageSchema);
 //var mongoMessage;
 //Message.findOne().exec(function(err, messageDoc) {
 //    mongoMessage = messageDoc.message;
 //});
 
-app.get('/partials/:partialPath', function(req, res) {
-    res.render('partials/' + req.params.partialPath);
-});
-
-app.get('/:partialPath', function(req, res) {
-    res.render('/' + req.params.partialPath);
+app.get('/partials/*', function(req, res) {
+    res.render('../../public/app/' + req.params);
 });
 
 app.get('*', function(req, res) {
@@ -69,6 +65,6 @@ app.get('*', function(req, res) {
     //{ mongoMessage: mongoMessage }
 });
 
-var port = 3030;
+var port = 3000;
 app.listen(port);
 console.log('Lyssnar på port ' + port + '...');

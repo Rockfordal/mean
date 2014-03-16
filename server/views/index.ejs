@@ -13,12 +13,13 @@
           <a href="/">Hem</a>
         </li>
       </ul>
+      <div data-ng-include="'/app/account/navbar-login.ejs'"></div>
     </div>
   </div>
 </div>
 
 <section class="content">
-  <div ng-view=""></div>
+  <div data-ng-view=""></div>
 </section>
 
 <footer class="container text-center">
