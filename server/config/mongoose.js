@@ -8,10 +8,24 @@ module.exports = function(config) {
     console.log('multivision db opened');
   });
 
+  var userSchema = mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    userName: String
+  });
+  var User = mongoose.model('User', userSchema);
+
+  User.find({}).exec(function (err, collection) {
+    if (collection.length === 0) {
+      User.create({firstName: 'Joe',  lastName: 'Eames',  userName: 'joe'});
+      User.create({firstName: 'John', lastName: 'Papa',   userName: 'john'});
+      User.create({firstName: 'Dan',  lastName: 'Wahlin', userName: 'dan'});
+    }
+  });
   //var messageSchema = mongoose.Schema({message: String});
   //var Message = mongoose.model('Message', messageSchema);
   //var mongoMessage;
   //Message.findOne().exec(function(err, messageDoc) {
   //    mongoMessage = messageDoc.message;
   //});
-}
+};

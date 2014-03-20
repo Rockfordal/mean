@@ -1,11 +1,12 @@
-function mvNavBarLoginCtrl($scope, $http) {
+function mvNavBarLoginCtrl($scope, $http, mvIdentity, mvNotifier) {
   $scope.signin = function(username, password) {
     $http.post('/login/', {username:username, password:password}).then(function(response) {
       if (response.data.success) {
-        console.log('logged in!');
+        mvIdentity.currentUser = response.data.user;
+        mvNotifier.notify('logged in!');
       } else {
-        console.log('failed to log in!');
+        mvNotifier.notify('failed to log in!');
       }
     })
   }
-};
+}

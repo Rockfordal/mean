@@ -1,6 +1,8 @@
 var express = require('express'),
     stylus = require('stylus'),
     doT = require('express-dot'),
+    //cors = require('cors'),
+    passport = require('passport'),
     fs = require('fs');
 
 module.exports = function(app, config){
@@ -34,11 +36,17 @@ module.exports = function(app, config){
         app.engine('html', doT.__express );
         app.engine('ejs', doT.__express );
         app.use(express.bodyParser());
+        app.use(express.cookieParser());
+        app.use(express.bodyParser());
+        app.use(express.session({secret: 'multi vision unicorns'}));
+        app.use(passport.initialize());
+        app.use(passport.session());
         app.use(stylus.middleware({
                 src: config.rootPath + '/public',
                 compile: compile
             }
         ));
         app.use(express.static(config.rootPath + '/public'));
+        //app.use(cors());
     });
-}
+};

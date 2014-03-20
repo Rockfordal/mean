@@ -12,4 +12,4 @@ module.exports = {
     db: 'mongodb://localhost/multivision',
     port: process.env.PORT || 3030
   }
-}
+};
