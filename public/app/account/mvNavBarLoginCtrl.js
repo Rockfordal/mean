@@ -1,12 +1,12 @@
-function mvNavBarLoginCtrl($scope, $http, mvIdentity, mvNotifier) {
+function mvNavBarLoginCtrl($scope, mvIdentity, mvNotifier, mvAuth) {
+  $scope.identity = mvIdentity;
   $scope.signin = function(username, password) {
-    $http.post('/login/', {username:username, password:password}).then(function(response) {
-      if (response.data.success) {
-        mvIdentity.currentUser = response.data.user;
-        mvNotifier.notify('logged in!');
+    mvAuth.authenticateUser(username, password).then(function(success) {
+      if (success) {
+        mvNotifier.notify('Du har loggats in!');
       } else {
-        mvNotifier.notify('failed to log in!');
+        mvNotifier.notify('Felaktigt användarnamn eller lösenord');
       }
-    })
+    });
   }
 }

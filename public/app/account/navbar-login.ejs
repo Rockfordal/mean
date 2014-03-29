@@ -1,5 +1,5 @@
 <div class="navbar-right" data-ng-controller="mvNavBarLoginCtrl">
-    <form class="navbar-form" action="">
+    <form class="navbar-form" action="" ng-hide="identity.isAuthenticated()">
         <div class="form-group">
             <input class="form-control" type="text" placeholder="Epost" data-ng-model="username"/>
         </div>

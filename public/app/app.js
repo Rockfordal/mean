@@ -6,6 +6,7 @@ app.controller('mvNavBarLoginCtrl', mvNavBarLoginCtrl);
 app.controller('mvMainCtrl', mvMainCtrl);
 app.factory('mvNotifier', mvNotifier);
 app.factory('mvIdentity', mvIdentity);
+app.factory('mvAuth', mvAuth);
 
 app.config(function ($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
