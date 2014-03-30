@@ -8,6 +8,7 @@ function mvNavBarLoginCtrl($scope, mvIdentity, mvNotifier, mvAuth, $location) {
         mvNotifier.notify('Felaktigt användarnamn eller lösenord');
       }
     });
+  $scope.hej = 'Tja';
   $scope.signout = function() {
     mvAuth.logoutUser().then(function () {
       $scope.username = "";

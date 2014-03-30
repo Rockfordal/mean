@@ -11,13 +11,14 @@ app.factory('mvUser', mvUser);
 app.factory('mvUserListCtrl', mvUserListCtrl);
 
 app.config(function ($routeProvider, $locationProvider) {
-  $locationProvider.html5Mode(true);
   var routeRoleChecks = {
     admin: {auth: function (mvAuth) {
         return mvAuth.authorizeCurrentUserForRoute('admin')
       }
     }
-  }
+  };
+
+  $locationProvider.html5Mode(true);
   $routeProvider
     .when('/', {templateUrl: '/app/main/main.ejs', controller: 'mvMainCtrl'})
     .when('/admin/users', {templateUrl: '/app/admin/user-list.ejs',
