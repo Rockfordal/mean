@@ -14,6 +14,21 @@ function mvAuth($http, mvIdentity, $q, mvUser) {
      });
      return dfd.promise;
    },
+
+   createUser: function (newUserData) {
+     var newUser = new mvUser(newUserData);
+     var dfd = $q.defer();
+
+     newUser.$save().then(function () {
+       mvIdentity.currentUser = newUser;
+       dfd.resolve();
+     }, function (response) {
+       dfd.reject(response.data.reason);
+     });
+
+     return dfd.promise;
+   },
+
    logoutUser: function () {
      var dfd = $q.defer();
      $http.post('/logout', {logout:true}).then(function () {
@@ -24,6 +39,13 @@ function mvAuth($http, mvIdentity, $q, mvUser) {
    },
    authorizeCurrentUserForRoute: function (role) {
      if (mvIdentity.isAuthorized('admin')) {
+       return true;
+     } else {
+       return $q.reject('not authorized');
+     }
+   },
+   authorizeAuthenticatedUserForRoute: function () {
+     if(mvIdentity.isAuthenticated()) {
        return true;
      } else {
        return $q.reject('not authorized');
