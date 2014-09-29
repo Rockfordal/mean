@@ -24,13 +24,19 @@ function createDefaultUsers() {
       var salt, hash;
       salt = encrypt.createSalt();
       hash = encrypt.hashPwd(salt, 'andersl');
-      User.create({firstName: 'Anders',  lastName: 'Lundström',  userName: 'andersl', salt: salt, hashed_pwd: hash, roles: ['admin']});
+      var andersl = {firstName: 'Anders', lastName: 'Lundström', username: 'andersl', salt: salt, hashed_pwd: hash, roles: ['admin']};
+      User.create(andersl, function(err){
+        if (err) console.log('fel: ' + err);
+      });
+
       salt = encrypt.createSalt();
       hash = encrypt.hashPwd(salt, 'hakan');
-      User.create({firstName: 'Håkan', lastName: 'Gustafsson',   userName: 'hakan', salt: salt, hashed_pwd: hash, roles: ['admin']});
+      User.create({firstName: 'Håkan', lastName: 'Gustafsson',  username: 'hakan', salt: salt, hashed_pwd: hash, roles: ['admin']});
+
       salt = encrypt.createSalt();
       hash = encrypt.hashPwd(salt, 'mattias');
-      User.create({firstName: 'Mattias',  lastName: 'Östholm', userName: 'mattias', salt: salt, hashed_pwd: hash, roles: []});
+      User.create({firstName: 'Mattias',  lastName: 'Östholm', username: 'mattias', salt: salt, hashed_pwd: hash, roles: []});
+      console.log('har skapat användare');
     }
   })
 }
