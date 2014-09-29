@@ -1,9 +1,9 @@
 var app = angular.module('app', ['ngResource', 'ngRoute']);
 
 app.value('mvToastr', toastr);
-app.controller('mvTestCtrl', mvTestCtrl);
 app.controller('mvNavBarLoginCtrl', mvNavBarLoginCtrl);
 app.controller('mvMainCtrl', mvMainCtrl);
+app.controller('mvProfileCtrl', mvProfileCtrl);
 app.factory('mvNotifier', mvNotifier);
 app.factory('mvIdentity', mvIdentity);
 app.factory('mvAuth', mvAuth);
