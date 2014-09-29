@@ -1,7 +1,8 @@
 var auth = require('./auth'),
   users = require('../controllers/users'),
-  mongoose = require('mongoose');
-  User = mongoose.model('User');
+  mongoose = require('mongoose'),
+  User = mongoose.model('User'),
+  data = { mvdata: {} };
 
 module.exports = function(app) {
 
@@ -20,8 +21,7 @@ module.exports = function(app) {
   });
 
   app.get('*', function(req, res) {
-    res.render('index.ejs',  {
-      bootstrappedUser: req.user
-    });
+    data.mvdata.bootstrappedUser = req.user;
+    res.render('index.ejs', data);
   });
 };

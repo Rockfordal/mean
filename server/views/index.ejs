@@ -54,11 +54,7 @@
   <p>&copy; 2014 MultiVision Corp Internation al Ltd.</p>
 </footer>
 
-<script>
-  if (<%-bootstrappedUser%>) {
-    window.bootstrappedUserObject =<%-JSON.stringify(bootstrappedUser)%>
-  }
-</script>
+<script>window.mvdata=<%-JSON.stringify(mvdata)%></script>
 
 </body>
 </html>

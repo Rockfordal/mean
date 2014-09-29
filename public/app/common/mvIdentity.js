@@ -1,9 +1,9 @@
 function mvIdentity($window, mvUser) {
   var currentUser;
 
-  if (!!$window.bootstrappedUserObject) {
+  if (!!$window.mvdata.bootstrappedUser) {
     currentUser = new mvUser();
-    angular.extend(currentUser, $window.bootstrappedUserObject);
+    angular.extend(currentUser, $window.mvdata.bootstrappedUser);
   }
 
   return {
