@@ -18,7 +18,7 @@ app.config(function ($routeProvider, $locationProvider) {
     }},
     user: {auth:
       function (mvAuth) {
-        mvAuth.authoriseAuthenticatedUserForRoute()
+        mvAuth.authorizeAuthenticatedUserForRoute()
     }}
   };
 
