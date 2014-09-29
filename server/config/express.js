@@ -1,6 +1,5 @@
 var express = require('express'),
     stylus = require('stylus'),
-    doT = require('express-dot'),
     //cors = require('cors'),
     passport = require('passport'),
     fs = require('fs');
@@ -10,31 +9,9 @@ module.exports = function(app, config){
         return stylus(str).set('filename', path);
     }
 
-    doT.setTemplateSettings({
-      evaluate:    /<%([\s\S]+?)%>/g,
-      interpolate: /<%=([\s\S]+?)%>/g,
-      encode:      /<%!([\s\S]+?)%>/g,
-      use:         /<%#([\s\S]+?)%>/g,
-      define:      /<%##\s*([\w\.$]+)\s*(:|=)([\s\S]+?)#%>/g,
-      conditional: /<%\?(\?)?\s*([\s\S]*?)\s*%>/g,
-      iterate:     /<%~\s*(?:\}\}|([\s\S]+?)\s*:\s*([\w$]+)\s*(?::\s*([\w$]+))?\s*%>)/g,
-      varname: 'it',
-      strip: true,
-      append: true,
-      selfcontained: false
-    });
-
-    doT.setGlobals({
-      loadfile: function(path){
-        var url = config.rootPath + path;
-        return fs.readFileSync(url, 'utf8');}
-    });
-
   app.configure(function(){
         app.set('views', config.rootPath + '/server/views');
-        app.set('view engine', 'dot' );
-        app.engine('html', doT.__express );
-        app.engine('ejs', doT.__express );
+        app.set('view engine', 'ejs' );
         app.use(express.bodyParser());
         app.use(express.cookieParser());
         app.use(express.bodyParser());

@@ -21,8 +21,7 @@ module.exports = function(app) {
 
   app.get('*', function(req, res) {
     res.render('index.ejs',  {
-      bootstrappedUser: req.user,
-      myVar: 'My Data'
+      bootstrappedUser: req.user
     });
   });
 };

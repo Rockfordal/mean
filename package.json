@@ -9,13 +9,12 @@
   "author": "Anders Lundström",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "jade": "^1.3.0",
+    "ejs": "^1.0.0",
     "express": "^3.4.8",
-    "stylus": "^0.42.3",
     "mongoose": "^3.8.8",
-    "express-dot": "^0.1.0",
+    "passport": "^0.2.0",
     "passport-local": "^1.0.0",
-    "passport": "^0.2.0"
+    "stylus": "^0.42.3"
   },
   "devDependencies": {
     "karma-mocha": "^0.1.3",
