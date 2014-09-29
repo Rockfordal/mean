@@ -24,13 +24,13 @@ app.config(function ($routeProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true);
   $routeProvider
-    .when('/', {templateUrl: '/app/main/main.ejs', controller: 'mvMainCtrl'})
-    .when('/admin/users', {templateUrl: '/app/admin/user-list.ejs',
+    .when('/', {templateUrl: '/app/main/main.html', controller: 'mvMainCtrl'})
+    .when('/admin/users', {templateUrl: '/app/admin/user-list.html',
       controller: 'mvUserListCtrl', resolve: routeRoleChecks.admin
     })
-    .when('/signup', {templateUrl: '/app/account/signup.ejs',
+    .when('/signup', {templateUrl: '/app/account/signup.html',
       controller: 'mvSignupCtrl' })
-    .when('/profile', {templateUrl: '/app/account/profile.ejs',
+    .when('/profile', {templateUrl: '/app/account/profile.html',
       controller: 'mvProfileCtrl', resolve: routeRoleChecks.user });
 });
 
