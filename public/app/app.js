@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngResource', 'ngRoute']);
+var app = angular.module('app', ['ngResource', 'ngRoute', 'ui.keypress']);
 
 app.value('mvToastr', toastr);
 app.controller('mvNavBarLoginCtrl', mvNavBarLoginCtrl);
