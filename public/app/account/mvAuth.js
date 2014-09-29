@@ -50,6 +50,7 @@ function mvAuth($http, mvIdentity, $q, mvUser) {
      });
      return dfd.promise;
    },
+
    authorizeCurrentUserForRoute: function (role) {
      if (mvIdentity.isAuthorized('admin')) {
        return true;
@@ -57,6 +58,7 @@ function mvAuth($http, mvIdentity, $q, mvUser) {
        return $q.reject('not authorized');
      }
    },
+
    authorizeAuthenticatedUserForRoute: function () {
      if(mvIdentity.isAuthenticated()) {
        return true;
