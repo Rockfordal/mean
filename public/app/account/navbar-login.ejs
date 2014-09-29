@@ -1,9 +1,6 @@
 <div class="navbar-right" ng-controller="mvNavBarLoginCtrl">
     <form class="navbar-form" action="" ng-hide="identity.isAuthenticated()">
       <ul class="nav navbar-nav">
-        <li>
-          <a href="/signup">Registrera</a>
-        </li>
       </ul>
         <div class="form-group">
             <input class="form-control" type="text" placeholder="Epost" data-ng-model="username" autofocus="true"/>
@@ -11,7 +8,7 @@
         <div class="form-group">
             <input class="form-control" type="password" placeholder="Lösenord" data-ng-model="password"/>
         </div>
-        <button class="btn btn-primary" data-ng-click="signin(username, password)">Logga in</button>
+        <a class="btn btn-primary" data-ng-click="signin(username, password)">Logga in</a>
     </form>
     <ul class="nav navbar-nav navbar-right" ng-show="identity.isAuthenticated()">
       <li class="dropdown">
