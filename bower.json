@@ -23,6 +23,7 @@
     "angular": "latest",
     "angular-resource": "latest",
     "angular-mocks": "latest",
-    "angular-ui-router": "~0.2.11"
+    "angular-ui-router": "~0.2.11",
+    "angular-ui-utils": "bower"
   }
 }
