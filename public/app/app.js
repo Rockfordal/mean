@@ -1,7 +1,9 @@
  define([
    'angular',
    'uiRouter',
-   'uiutils'
+   'uiutils',
+   'bootstrap'
+
  ], function(angular) {
   var app = angular.module('app', [
     'ui.router',

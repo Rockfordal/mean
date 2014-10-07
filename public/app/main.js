@@ -3,6 +3,7 @@ require.config({
 
   paths: {
     angular: '../vendor/angular/angular',
+    bootstrap: '../vendor/bootstrap/dist/js/bootstrap.min',
     uiRouter: '../vendor/angular-ui-router/release/angular-ui-router',
     ngResource: '../vendor/angular-resource/angular-resource',
     jquery : '../vendor/jquery/dist/jquery.min',
@@ -14,6 +15,7 @@ require.config({
     angular: { deps: ['jquery'], exports: 'angular' },
     jquery: { exports: '$' },
     uiRouter: { deps: ['angular'] },
+    bootstrap: { deps: ['jquery'] },
     uiutils: { deps: ['angular'] },
     ngResource: { deps: ['angular']}
   },
