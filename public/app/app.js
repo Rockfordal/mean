@@ -3,7 +3,10 @@
    'uiRouter',
    'uiutils'
  ], function(angular) {
-  var app = angular.module('app', ['ui.router', 'ngResource', 'ui.keypress']);
+  var app = angular.module('app', [
+    'ui.router',
+    'ngResource',
+    'ui.keypress']);
 
 //  app.controller('mvProfileCtrl', mvProfileCtrl);
 //  app.factory('mvUserListCtrl', mvUserListCtrl);
