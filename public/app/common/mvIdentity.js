@@ -4,11 +4,8 @@ define(['common/common'], function () {
     var currentUser;
 
     if (!!$window.mvdata.bootstrappedUser) {
-      console.log('mvidentity skapar ny user');
       currentUser = new mvUser();
       angular.extend(currentUser, $window.mvdata.bootstrappedUser);
-    } else {
-      console.log('har inte hittat bootstrappeduser: ' + $window.mvdata.bootstrappedUser);
     }
 
     return {

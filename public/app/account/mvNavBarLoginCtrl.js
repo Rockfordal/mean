@@ -3,8 +3,6 @@ define(['account/account'], function () {
   function ctrl($scope, mvIdentity, mvNotifier, mvAuth, $location) {
     $scope.identity = mvIdentity;
 
-    console.log('isAuthenticated: ' + mvIdentity.isAuthenticated());
-
     $scope.signin = function (username, password) {
       mvAuth.authenticateUser(username, password).then(function (success) {
         if (success) {
