@@ -1,21 +1,29 @@
-function mvNavBarLoginCtrl($scope, mvIdentity, mvNotifier, mvAuth, $location) {
-  $scope.identity = mvIdentity;
+define(['account/account'], function () {
 
-  $scope.signin = function(username, password) {
-    mvAuth.authenticateUser(username, password).then(function(success) {
-      if (success) {
-        mvNotifier.notify('Du har loggats in!');
-      } else {
-        mvNotifier.notify('Felaktigt användarnamn eller lösenord');
+  function ctrl($scope, mvIdentity, mvNotifier, mvAuth, $location) {
+    $scope.identity = mvIdentity;
+
+    console.log('isAuthenticated: ' + mvIdentity.isAuthenticated());
+
+    $scope.signin = function (username, password) {
+      mvAuth.authenticateUser(username, password).then(function (success) {
+        if (success) {
+          mvNotifier.notify('Du har loggats in!');
+        } else {
+          mvNotifier.notify('Felaktigt användarnamn eller lösenord');
+        }
+      });
+
+      $scope.signout = function () {
+        mvAuth.logoutUser().then(function () {
+          $scope.username = "";
+          $scope.password = "";
+          mvNotifier.notify('Du har loggat ut!');
+          $location.path('/');
+        })
       }
-    });
-
-  $scope.signout = function() {
-    mvAuth.logoutUser().then(function () {
-      $scope.username = "";
-      $scope.password = "";
-      mvNotifier.notify('Du har loggat ut!');
-      $location.path('/');
-    })
+    }
   }
-}}
+
+  return ctrl;
+});

@@ -1,4 +1,6 @@
-function mvUser($resource) {
+define(['account/account'], function () {
+
+function svc($resource) {
   var UserResource = $resource('/api/users/:id', {_id: "@id"}, {
     update: { method: 'PUT', isArray: false }
   });
@@ -9,3 +11,6 @@ function mvUser($resource) {
 
   return UserResource;
 }
+
+ return svc;
+});
