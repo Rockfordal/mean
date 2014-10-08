@@ -12,6 +12,4 @@ define(['app', 'home/mvHomeCtrl'],
         });
     })
     .controller('mvHomeCtrl', mvHomeCtrl);
-
-  return app
 });
