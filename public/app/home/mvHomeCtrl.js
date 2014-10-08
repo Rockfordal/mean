@@ -1,6 +1,7 @@
 define(['home/home'], function() {
 
   function ctrl($scope) {
+
     $scope.courses = [
       { name: 'C#', featured: true, published: new Date('2014-01-01') },
       { name: 'Ruby', featured: true, published: new Date('2014-02-01') },

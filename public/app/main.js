@@ -20,7 +20,13 @@ require.config({
     ngResource: { deps: ['angular']}
   },
 
-  priority: ['uiRouter', 'angular', 'app', 'ngResource', 'account/index']
+  priority: [
+    'uiRouter',
+    'angular',
+    'app',
+    'ngResource',
+    'account/index'
+  ]
 });
 
 // Kräv
@@ -33,7 +39,7 @@ require([
     'home/home'
   ],
 
-// Bootstrappa
+// Bootstrap
   function (angular) {
     angular.element(document).ready(function () {
       angular.bootstrap(document, ['app']);
