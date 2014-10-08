@@ -1,24 +1,29 @@
-function mvProfileCtrl($scope, mvAuth, mvIdentity, mvNotifier) {
-  $scope.currentuser = mvIdentity.currentUser;
-  $scope.email = mvIdentity.currentUser.username;
-  $scope.fname = mvIdentity.currentUser.firstName;
-  $scope.lname = mvIdentity.currentUser.lastName;
+define([], function () {
 
-  $scope.update = function () {
-    var newUserData = {
-      username: $scope.email,
-      firstName: $scope.fname,
-      lastName: $scope.lname
-    };
+  function ctrl($scope, mvAuth, mvIdentity, mvNotifier) {
+    $scope.currentuser = mvIdentity.currentUser;
+    $scope.email = mvIdentity.currentUser.username;
+    $scope.fname = mvIdentity.currentUser.firstName;
+    $scope.lname = mvIdentity.currentUser.lastName;
 
-    if ($scope.password && $scope.password.length > 0) {
-      newUserData.password = $scope.password;
+    $scope.update = function () {
+      var newUserData = {
+        username:  $scope.email,
+        firstName: $scope.fname,
+        lastName:  $scope.lname
+      };
+
+      if ($scope.password && $scope.password.length > 0) {
+        newUserData.password = $scope.password;
+      }
+
+      mvAuth.updateCurrentUser(newUserData).then(function () {
+        mvNotifier.notify('Your user account has been updated');
+      }, function (reason) {
+        mvNotifier.error(reason);
+      })
     }
-
-    mvAuth.updateCurrentUser(newUserData).then(function () {
-      mvNotifier.notify('Your user account has been updated');
-    }, function (reason) {
-      mvNotifier.error(reason);
-    })
   }
-}
+
+  return ctrl;
+});
