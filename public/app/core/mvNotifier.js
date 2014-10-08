@@ -8,11 +8,11 @@ define(['toastr'], function (toastr) {
     };
 
     function notify(msg) {
-      mvToastr.success(msg);
+      toastr.success(msg);
     }
 
     function error(msg) {
-      mvToastr.error(msg);
+      toastr.error(msg);
     }
 
     return service;
