@@ -38,6 +38,7 @@ require([
     'common/common',
     'account/account',
     'home/home'
+    'admin/admin.module'
   ],
 
 // Bootstrap
