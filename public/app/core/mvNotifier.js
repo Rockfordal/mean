@@ -1,4 +1,4 @@
-define(['core/core.module'], function () {
+define(['toastr'], function (toastr) {
 
   function svc(mvToastr) {
 

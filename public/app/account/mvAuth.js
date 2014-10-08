@@ -1,4 +1,4 @@
-define(['account/account.module'], function () {
+define([], function () {
 
   function svc($http, mvIdentity, $q, mvUser) {
 

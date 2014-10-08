@@ -1,4 +1,4 @@
-define(['home/home'], function() {
+define([], function () {
 
   function ctrl($scope) {
 

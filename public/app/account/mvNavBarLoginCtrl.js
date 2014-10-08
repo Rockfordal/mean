@@ -1,4 +1,4 @@
-define(['account/account'], function () {
+define([], function () {
 
   function ctrl($scope, mvIdentity, mvNotifier, mvAuth, $location) {
     $scope.identity = mvIdentity;

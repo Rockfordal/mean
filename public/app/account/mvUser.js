@@ -1,4 +1,4 @@
-define(['account/account'], function () {
+define([], function () {
 
 function svc($resource) {
   var UserResource = $resource('/api/users/:id', {_id: "@id"}, {
