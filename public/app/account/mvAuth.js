@@ -1,6 +1,6 @@
 define([], function () {
 
-  function svc($http, mvIdentity, $q, mvUser) {
+  function mvAuth($http, mvIdentity, $q, mvUser) {
 
     var service = {
       authenticateUser: authenticateUser,
@@ -81,5 +81,5 @@ define([], function () {
      return service;
   }
 
-  return svc;
+  return mvAuth;
 });

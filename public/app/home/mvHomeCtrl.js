@@ -1,6 +1,6 @@
 define([], function () {
 
-  function ctrl($scope) {
+  function mvHomeCtrl($scope) {
 
     $scope.courses = [
       { name: 'C#', featured: true, published: new Date('2014-01-01') },
@@ -9,5 +9,5 @@ define([], function () {
     ]
   }
 
-  return ctrl;
+  return mvHomeCtrl;
 });

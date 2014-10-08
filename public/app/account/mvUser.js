@@ -1,16 +1,16 @@
 define([], function () {
 
-function svc($resource) {
-  var UserResource = $resource('/api/users/:id', {_id: "@id"}, {
-    update: { method: 'PUT', isArray: false }
-  });
+  function mvUser($resource) {
+    var UserResource = $resource('/api/users/:id', {_id: "@id"}, {
+      update: { method: 'PUT', isArray: false }
+    });
 
-  UserResource.prototype.isAdmin = function () {
-    return this.roles && this.roles.indexOf('admin') > -1;
-  };
+    UserResource.prototype.isAdmin = function () {
+      return this.roles && this.roles.indexOf('admin') > -1;
+    };
 
-  return UserResource;
-}
+    return UserResource;
+  }
 
- return svc;
+  return mvUser;
 });

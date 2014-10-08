@@ -1,6 +1,6 @@
 define([], function () {
 
-  function ctrl($scope, mvIdentity, mvNotifier, mvAuth, $location) {
+  function mvNavbarLoginCtrl($scope, mvIdentity, mvNotifier, mvAuth, $location) {
     $scope.identity = mvIdentity;
 
     $scope.signin = function (username, password) {
@@ -23,5 +23,5 @@ define([], function () {
     }
   }
 
-  return ctrl;
+  return mvNavbarLoginCtrl;
 });

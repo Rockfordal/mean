@@ -1,6 +1,6 @@
 define(['toastr'], function (toastr) {
 
-  function svc(mvToastr) {
+  function mvNotifier() {
 
     var service = {
       notify: notify,
@@ -18,5 +18,5 @@ define(['toastr'], function (toastr) {
     return service;
   }
 
-  return svc;
+  return mvNotifier;
 });
