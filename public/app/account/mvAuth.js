@@ -1,8 +1,17 @@
-define(['account/account'], function () {
+define(['account/account.module'], function () {
 
   function svc($http, mvIdentity, $q, mvUser) {
-    return {
-      authenticateUser: function (username, password) {
+
+    var service = {
+      authenticateUser: authenticateUser,
+      createUser: createUser,
+      updateCurrentUser: updateCurrentUser,
+      logoutUser: logoutUser,
+      authorizeCurrentUserForRoute: authorizeCurrentUserForRoute,
+      authorizeAuthenticatedUserForRoute: authorizeAuthenticatedUserForRoute
+    };
+
+      function authenticateUser (username, password) {
         var dfd = $q.defer();
         $http.post('/login/', { username: username, password: password }).then(function (response) {
           if (response.data.success) {
@@ -15,9 +24,9 @@ define(['account/account'], function () {
           }
         });
         return dfd.promise;
-      },
+      }
 
-      createUser: function (newUserData) {
+      function createUser (newUserData) {
         var newUser = new mvUser(newUserData);
         var dfd = $q.defer();
 
@@ -29,9 +38,9 @@ define(['account/account'], function () {
         });
 
         return dfd.promise;
-      },
+      }
 
-      updateCurrentUser: function (newUserData) {
+      function updateCurrentUser(newUserData) {
         var dfd = $q.defer();
         var clone = angular.copy(mvIdentity.currentUser);
         angular.extend(clone, newUserData);
@@ -42,33 +51,35 @@ define(['account/account'], function () {
           dfd.reject(response.data.reason);
         });
         return dfd.promise;
-      },
+      }
 
-      logoutUser: function () {
+      function logoutUser() {
         var dfd = $q.defer();
         $http.post('/logout', {logout: true}).then(function () {
           mvIdentity.currentUser = undefined;
           dfd.resolve();
         });
         return dfd.promise;
-      },
+      }
 
-      authorizeCurrentUserForRoute: function (role) {
+      function authorizeCurrentUserForRoute(role) {
         if (mvIdentity.isAuthorized('admin')) {
           return true;
         } else {
           return $q.reject('not authorized');
         }
-      },
+      }
 
-      authorizeAuthenticatedUserForRoute: function () {
+      function authorizeAuthenticatedUserForRoute() {
         if (mvIdentity.isAuthenticated()) {
           return true;
         } else {
           return $q.reject('not authorized');
         }
       }
-    }
+
+     return service;
   }
+
   return svc;
 });
