@@ -9,9 +9,6 @@
   var app = angular.module('app', [
     'ui.router',
     'ngResource',
-  app.config(function ($stateProvider, $locationProvider) {
-
-    $locationProvider.html5Mode(true);
     'ui.keypress'
   ]);
 
