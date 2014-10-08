@@ -16,6 +16,7 @@ require.config({
     jquery: { exports: '$' },
     uiRouter: { deps: ['angular'] },
     bootstrap: { deps: ['jquery'] },
+    toastr: { exports: 'toastr' },
     uiutils: { deps: ['angular'] },
     ngResource: { deps: ['angular']}
   },
