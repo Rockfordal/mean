@@ -35,9 +35,9 @@ require([
     'angular',
     'app',
     'ngResource',
-    'common/common',
-    'account/account',
-    'home/home'
+    'core/core.module',
+    'account/account.module',
+    'home/home.module',
     'admin/admin.module'
   ],
 
