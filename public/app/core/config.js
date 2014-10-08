@@ -1,12 +1,12 @@
-define(['app'], function (app) {
+define(['toastr'], function (toastr) {
 
-  mvToastr.options = {
-    positionClass: "toast-bottom-full-width"
-  };
+  function config($locationProvider) {
+    $locationProvider.html5Mode(true);
 
-  app
-    .config(function ($locationProvider) {
-      $locationProvider.html5Mode(true);
-    });
+    toastr.options = {
+      positionClass: "toast-bottom-full-width"
+    };
+  }
 
+  return config
 });
