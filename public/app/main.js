@@ -12,11 +12,11 @@ require.config({
   },
 
   shim: {
-    angular: { deps: ['jquery'], exports: 'angular' },
     jquery: { exports: '$' },
-    uiRouter: { deps: ['angular'] },
     bootstrap: { deps: ['jquery'] },
     toastr: { exports: 'toastr' },
+    angular: { deps: ['jquery'], exports: 'angular' },
+    uiRouter: { deps: ['angular'] },
     uiutils: { deps: ['angular'] },
     ngResource: { deps: ['angular']}
   },
