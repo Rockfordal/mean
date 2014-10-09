@@ -1,20 +1,21 @@
 define([], function () {
 
-  function ctrl($scope, mvAuth, mvIdentity, mvNotifier) {
-    $scope.currentuser = mvIdentity.currentUser;
-    $scope.email = mvIdentity.currentUser.username;
-    $scope.fname = mvIdentity.currentUser.firstName;
-    $scope.lname = mvIdentity.currentUser.lastName;
+  function mvProfileCtrl(mvAuth, mvIdentity, mvNotifier) {
+    var vm = this;
+    vm.currentuser = mvIdentity.currentUser;
+    vm.email = mvIdentity.currentUser.username;
+    vm.fname = mvIdentity.currentUser.firstName;
+    vm.lname = mvIdentity.currentUser.lastName;
 
-    $scope.update = function () {
+    vm.update = function () {
       var newUserData = {
-        username:  $scope.email,
-        firstName: $scope.fname,
-        lastName:  $scope.lname
+        username:  vm.email,
+        firstName: vm.fname,
+        lastName:  vm.lname
       };
 
-      if ($scope.password && $scope.password.length > 0) {
-        newUserData.password = $scope.password;
+      if (vm.password && vm.password.length > 0) {
+        newUserData.password = vm.password;
       }
 
       mvAuth.updateCurrentUser(newUserData).then(function () {
@@ -25,5 +26,5 @@ define([], function () {
     }
   }
 
-  return ctrl;
+  return mvProfileCtrl;
 });

@@ -23,6 +23,7 @@ define([
             url:         '/profile',
             templateUrl: '/app/account/profile.html',
             controller:  'mvProfileCtrl',
+            controllerAs: 'profile',
             resolve: routeRoleChecks.user
           })
           .state('signup', {
