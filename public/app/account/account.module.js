@@ -29,7 +29,8 @@ define([
           .state('signup', {
             url:         '/signup',
             templateUrl: '/app/account/signup.html',
-            controller:  'mvSignupCtrl'
+            controller:  'mvSignupCtrl',
+            controllerAs: 'signup'
           })
       })
       .factory('mvAuth', mvAuth)

@@ -6,31 +6,31 @@
         <div class="form-group">
           <label class="col-md-2 control-label" for="email">E-Post</label>
           <div class="col-md-10">
-            <input class="form-control" type="email" name="email" placeholder="E-post" ng-model="email" required autofocus />
+            <input class="form-control" type="email" name="email" placeholder="E-post" ng-model="signup.email" required autofocus />
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-2 control-label" for="password">Lösen</label>
           <div class="col-md-10">
-            <input class="form-control" type="password" name="password" placeholder="password" ng-model="password" required />
+            <input class="form-control" type="password" name="password" placeholder="password" ng-model="signup.password" required />
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-2 control-label" for="fname">Förnamn</label>
           <div class="col-md-10">
-            <input class="form-control" type="text" name="fname" placeholder="Förnamn" ng-model="fname" required />
+            <input class="form-control" type="text" name="fname" placeholder="Förnamn" ng-model="signup.fname" required />
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-2 control-label" for="lname">Efternamn</label>
           <div class="col-md-10">
-            <input class="form-control" type="text" name="lname" placeholder="Efternamn" ng-model="lname" required />
+            <input class="form-control" type="text" name="lname" placeholder="Efternamn" ng-model="signup.lname" required />
           </div>
         </div>
         <div class="form-group">
           <div class="col-md-10 col-md-offset-2">
             <div class="pull-right">
-              <button class="btn btn-primary" ng-click="signup()" ng-disabled="signupForm.$invalid">Registrera</button>
+              <button class="btn btn-primary" ng-click="signup.signup()" ng-disabled="signupForm.$invalid">Registrera</button>
               <a class="btn btn-default" href="/">Avbryt</a>
             </div>
           </div>
