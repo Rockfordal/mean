@@ -1,7 +1,8 @@
 define([], function () {
 
-  function mvUserListCtrl($scope, mvUser) {
-    $scope.users = mvUser.query();
+  function mvUserListCtrl(mvUser) {
+    var vm = this;
+    vm.users = mvUser.query();
   }
 
   return mvUserListCtrl;

@@ -11,6 +11,7 @@ define([
           url:         '/users',
           templateUrl: '/app/admin/users.html',
           controller:  'mvUserListCtrl',
+          controllerAs: 'vm',
           resolve:     routeRoleChecks.admin
         })
 
