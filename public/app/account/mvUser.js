@@ -1,11 +1,16 @@
-function mvUser($resource) {
-  var UserResource = $resource('/api/users/:id', {_id: "@id"}, {
-    update: { method: 'PUT', isArray: false }
-  });
+define([], function () {
 
-  UserResource.prototype.isAdmin = function () {
-    return this.roles && this.roles.indexOf('admin') > -1;
-  };
+  function mvUser($resource) {
+    var UserResource = $resource('/api/users/:id', {_id: "@id"}, {
+      update: { method: 'PUT', isArray: false }
+    });
 
-  return UserResource;
-}
+    UserResource.prototype.isAdmin = function () {
+      return this.roles && this.roles.indexOf('admin') > -1;
+    };
+
+    return UserResource;
+  }
+
+  return mvUser;
+});
