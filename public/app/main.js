@@ -6,6 +6,7 @@ require.config({
     bootstrap: '../vendor/bootstrap/dist/js/bootstrap.min',
     uiRouter: '../vendor/angular-ui-router/release/angular-ui-router',
     ngResource: '../vendor/angular-resource/angular-resource',
+    uiBootstrap: '../vendor/angular-bootstrap/ui-bootstrap-tpls.min',
     jquery : '../vendor/jquery/dist/jquery.min',
     toastr: '../vendor/toastr/toastr.min',
     uiutils: '/vendor/ui-utils/ui-utils.min'
@@ -17,6 +18,7 @@ require.config({
     toastr: { exports: 'toastr' },
     angular: { deps: ['jquery'], exports: 'angular' },
     uiRouter: { deps: ['angular'] },
+    uiBootstrap: { deps: ['angular'] },
     uiutils: { deps: ['angular'] },
     ngResource: { deps: ['angular']}
   },
@@ -24,6 +26,7 @@ require.config({
   priority: [
     'uiRouter',
     'angular',
+    'uiBootstrap',
     'app',
     'ngResource',
     'account/index'

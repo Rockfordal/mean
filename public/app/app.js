@@ -1,6 +1,7 @@
  define([
    'angular',
    'uiRouter',
+   'uiBootstrap',
    'uiutils',
    'bootstrap'
 
@@ -8,8 +9,9 @@
 
   var app = angular.module('app', [
     'ui.router',
-    'ngResource',
-    'ui.keypress'
+    'ui.bootstrap',
+    'ui.keypress',
+    'ngResource'
   ]);
 
   app.run(function ($rootScope, $state, mvNotifier) {
