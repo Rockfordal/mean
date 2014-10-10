@@ -1,9 +1,10 @@
 define([], function () {
 
-  function mvNavbarLoginCtrl($scope, mvIdentity, mvNotifier, mvAuth, $location) {
-    $scope.identity = mvIdentity;
+  function mvLoginCtrl(mvIdentity, mvNotifier, mvAuth, $location) {
+    var vm = this;
+    vm.identity = mvIdentity;
 
-    $scope.signin = function (username, password) {
+    vm.signin = function (username, password) {
       mvAuth.authenticateUser(username, password).then(function (success) {
         if (success) {
           mvNotifier.notify('Du har loggats in!');
@@ -12,10 +13,10 @@ define([], function () {
         }
       });
 
-      $scope.signout = function () {
+      vm.signout = function () {
         mvAuth.logoutUser().then(function () {
-          $scope.username = "";
-          $scope.password = "";
+          vm.username = "";
+          vm.password = "";
           mvNotifier.notify('Du har loggat ut!');
           $location.path('/');
         })
@@ -23,5 +24,5 @@ define([], function () {
     }
   }
 
-  return mvNavbarLoginCtrl;
+  return mvLoginCtrl;
 });

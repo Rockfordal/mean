@@ -1,6 +1,6 @@
 define([
     'app',
-    'account/mvNavBarLoginCtrl',
+    'account/mvLoginCtrl',
     'account/mvUser',
     'account/mvAuth',
     'account/mvProfileCtrl',
@@ -34,7 +34,7 @@ define([
       })
       .factory('mvAuth', mvAuth)
       .factory('mvUser', mvUser)
-      .controller('mvNavBarLoginCtrl', mvLoginCtrl)
+      .controller('mvLoginCtrl', mvLoginCtrl)
       .controller('mvProfileCtrl', mvProfileCtrl)
       .controller('mvSignupCtrl', mvSignupCtrl);
 
