@@ -1,24 +1,24 @@
 <div class="navbar-right" ng-controller="mvLoginCtrl as login">
-    <form class="navbar-form" action="" ng-hide="identity.isAuthenticated()">
+    <form class="navbar-form" action="" ng-hide="login.identity.isAuthenticated()">
       <ul class="nav navbar-nav">
       </ul>
         <div class="form-group">
             <input class="form-control" type="text" placeholder="Epost" data-ng-model="login.username" autofocus />
         </div>
         <div class="form-group">
-            <input class="form-control" type="password" placeholder="Lösenord" data-ng-model="login.password" ui-keypress="{13:'login.signin(username, password)'}"/>
+            <input class="form-control" type="password" placeholder="Lösenord" data-ng-model="login.password" ui-keypress="{13:'login.signin(login.username, login.password)'}"/>
         </div>
-        <a class="btn btn-primary" data-ng-click="login.signin(username, password)">Logga in</a>
+        <a class="btn btn-primary" data-ng-click="login.signin(login.username, login.password)">Logga in</a>
     </form>
 
     <ul class="nav navbar-nav navbar-right" ng-show="login.identity.isAuthenticated()">
       <li class="dropdown">
         <a class="dropdown-toggle" href="" data-toggle="dropdown">
-          {{identity.currentUser.firstName + " " + identity.currentUser.lastName }}
+          {{login.identity.currentUser.firstName + " " + login.identity.currentUser.lastName }}
           <b class="caret"></b></a>
         </a>
         <ul class="dropdown-menu">
-          <li ng-show="identity.currentUser.isAdmin()">
+          <li ng-show="login.identity.currentUser.isAdmin()">
             <a href="/users">Användare</a>
           </li>
           <li>
