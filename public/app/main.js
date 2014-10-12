@@ -41,7 +41,8 @@ require([
     'core/core.module',
     'account/account.module',
     'home/home.module',
-    'admin/admin.module'
+    'admin/admin.module',
+    'test/test.module'
   ],
 
 // Bootstrap
