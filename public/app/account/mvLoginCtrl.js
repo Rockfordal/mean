@@ -12,15 +12,15 @@ define([], function () {
           mvNotifier.notify('Felaktigt användarnamn eller lösenord');
         }
       });
+    };
 
-      vm.signout = function () {
-        mvAuth.logoutUser().then(function () {
-          vm.username = "";
-          vm.password = "";
-          mvNotifier.notify('Du har loggat ut!');
-          $location.path('/');
-        })
-      }
+    vm.signout = function () {
+      mvAuth.logoutUser().then(function () {
+        vm.username = "";
+        vm.password = "";
+        mvNotifier.notify('Du har loggat ut!');
+        $location.path('/');
+      })
     }
   }
 
