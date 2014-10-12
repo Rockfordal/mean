@@ -16,10 +16,11 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="/"> MultiVision</a>
     </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="/">Hem</a>
+
+    <div class="navbar-collapse collapse" ng-controller="mvNavbarCtrl as navbar">
+      <ul class="nav navbar-nav" ng-repeat="item in navbar.items | orderBy:ordering">
+        <li ng-class="{active: (location == item.url)}">
+          <a ui-sref="{{item.name}}">{{item.text}}</a>
         </li>
       </ul>
       <div ng-include="'/app/account/navbar-login.html'"></div>
