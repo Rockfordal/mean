@@ -3,18 +3,17 @@ define([], function () {
   function mvNavbarCtrl($location, $rootScope, $state) {
     var vm = this;
     vm.location = $location.url();
+    vm.items = [];
+//    vm.data = $state.current.data;
+
     vm.ordering = function (item) {
       return item.values;
     };
 
-    vm.items = [
-      { name: 'home',  text: 'Hem', url: '/' },
-      { name: 'test',  text: 'Om',  url: '/test' }
-    ];
-
-    vm.data = $state.current.data;
     $state.get().forEach(function (state) {
-      //console.log(state.name);
+      if (!!state.label) {
+        vm.items.push({ name: state.name, text: state.label, url: state.url });
+      }
     });
 
     $rootScope.$on('$stateChangeSuccess', function(){

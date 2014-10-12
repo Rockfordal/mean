@@ -8,7 +8,8 @@ define(['app', 'home/mvHomeCtrl'],
         .state('home', {
           url:         '/',
           templateUrl: '/app/home/home.html',
-          controller:  'mvHomeCtrl'
+          controller:  'mvHomeCtrl',
+          label: 'Hem'
         });
     })
     .controller('mvHomeCtrl', mvHomeCtrl);
