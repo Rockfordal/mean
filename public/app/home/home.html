@@ -11,4 +11,10 @@
       <div data-ng-include="'/app/home/new-courses.html'"></div>
     </div>
   </div>
+
+  <div data-ng-controller="mvLoginCtrl as login" data-ng-hide="login.identity.isAuthenticated()">
+    <p>
+      <a class="btn btn-info" ui-sref="signup">Registrera</a>
+    </p>
+  </div>
 </div>
