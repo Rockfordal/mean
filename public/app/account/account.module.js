@@ -14,6 +14,7 @@ define([
             mvProfileCtrl,
             mvSignupCtrl
             ) {
+    'use strict';
 
     app
       .config(function ($stateProvider, routeRoleChecks) {
@@ -31,7 +32,7 @@ define([
             templateUrl: '/app/account/signup.html',
             controller:  'mvSignupCtrl',
             controllerAs: 'signup'
-          })
+          });
       })
       .factory('mvAuth', mvAuth)
       .factory('mvUser', mvUser)
@@ -39,6 +40,6 @@ define([
       .controller('mvProfileCtrl', mvProfileCtrl)
       .controller('mvSignupCtrl', mvSignupCtrl);
 
-    return app
+    return app;
 
   });

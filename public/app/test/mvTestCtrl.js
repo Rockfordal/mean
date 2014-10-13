@@ -2,8 +2,13 @@ define([], function () {
 
   function mvTestCtrl() {
     var vm = this;
+
     vm.test = 'testar';
-//    console.log(vm.test);
+
+    vm.people = [
+      {id: 1, name: 'nils'},
+      {id: 2, name: 'igor'}
+    ];
   }
 
   return mvTestCtrl;

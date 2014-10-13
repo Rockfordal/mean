@@ -16,19 +16,19 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="/"> MultiVision</a>
     </div>
-    <div class="navbar-collapse collapse" ng-controller="mvNavbarCtrl as navbar">
-      <ul class="nav navbar-nav" ng-repeat="item in navbar.items | orderBy:ordering">
-        <li ng-class="{active: (navbar.location == item.url)}">
-          <a ui-sref="{{item.name}}">{{item.text}}</a>
+    <div class="navbar-collapse collapse" data-ng-controller="mvNavbarCtrl as navbar">
+      <ul class="nav navbar-nav" data-ng-repeat="item in navbar.items | orderBy:ordering">
+        <li data-ng-class="{active: (navbar.location == item.url)}">
+          <a data-ui-sref="{{item.name}}">{{item.text}}</a>
         </li>
       </ul>
-      <div ng-include="'/app/account/navbar-login.html'"></div>
+      <div data-ng-include="'/app/account/navbar-login.html'"></div>
     </div>
   </div>
 </div>
 
 <section class="content">
-  <div ui-view=""></div>
+  <div data-ui-view=""></div>
 </section>
 
 <footer class="container text-center">

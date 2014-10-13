@@ -2,10 +2,11 @@
    'angular',
    'uiRouter',
    'uiBootstrap',
-   'uiutils',
+   'uiUtils',
    'bootstrap'
 
  ], function(angular) {
+   'use strict';
 
   var app = angular.module('app', [
     'ui.router',
@@ -20,7 +21,7 @@
         mvNotifier.error('Sorry, you are probably not allowed here');
         $state.go('home');
       }
-    })
+    });
   });
 
   return app;

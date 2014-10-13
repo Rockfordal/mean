@@ -3,6 +3,7 @@ define([
   'admin/mvUserListCtrl'
 
 ], function (app, mvUserListCtrl) {
+  'use strict';
 
   app
     .config(function ($stateProvider, routeRoleChecks) {
@@ -13,7 +14,7 @@ define([
           controller:  'mvUserListCtrl',
           controllerAs: 'vm',
           resolve:     routeRoleChecks.admin
-        })
+        });
 
     })
     .controller('mvUserListCtrl', mvUserListCtrl);

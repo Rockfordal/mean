@@ -7,13 +7,13 @@ define([], function () {
   function routeRoleChecks() {
     return {
       admin: { auth: function (mvAuth) {
-        return mvAuth.authorizeCurrentUserForRoute('admin')
+        return mvAuth.authorizeCurrentUserForRoute('admin');
       }},
       user:  { auth: function (mvAuth) {
-        return mvAuth.authorizeAuthenticatedUserForRoute()
+        return mvAuth.authorizeAuthenticatedUserForRoute();
       }}
-    }
+    };
   }
 
-  return common
+  return common;
 });

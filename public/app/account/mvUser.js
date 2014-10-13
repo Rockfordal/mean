@@ -1,7 +1,7 @@
 define([], function () {
 
   function mvUser($resource) {
-    var UserResource = $resource('/api/users/:id', {_id: "@id"}, {
+    var UserResource = $resource('/api/users/:id', {_id: '@id'}, {
       update: { method: 'PUT', isArray: false }
     });
 

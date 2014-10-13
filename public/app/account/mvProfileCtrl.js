@@ -22,8 +22,8 @@ define([], function () {
         mvNotifier.notify('Your user account has been updated');
       }, function (reason) {
         mvNotifier.error(reason);
-      })
-    }
+      });
+    };
   }
 
   return mvProfileCtrl;

@@ -9,7 +9,7 @@ require.config({
     uiBootstrap: '../vendor/angular-bootstrap/ui-bootstrap-tpls.min',
     jquery : '../vendor/jquery/dist/jquery.min',
     toastr: '../vendor/toastr/toastr.min',
-    uiutils: '/vendor/ui-utils/ui-utils.min'
+    uiUtils: '/vendor/ui-utils/ui-utils.min'
   },
 
   shim: {
@@ -19,7 +19,7 @@ require.config({
     angular: { deps: ['jquery'], exports: 'angular' },
     uiRouter: { deps: ['angular'] },
     uiBootstrap: { deps: ['angular'] },
-    uiutils: { deps: ['angular'] },
+    uiUtils: { deps: ['angular'] },
     ngResource: { deps: ['angular']}
   },
 
@@ -33,7 +33,6 @@ require.config({
   ]
 });
 
-// Kräv
 require([
     'angular',
     'app',
@@ -47,6 +46,7 @@ require([
 
 // Bootstrap
   function (angular) {
+    'use strict';
     angular.element(document).ready(function () {
       angular.bootstrap(document, ['app']);
     });

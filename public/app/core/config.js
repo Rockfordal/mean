@@ -4,9 +4,9 @@ define(['toastr'], function (toastr) {
     $locationProvider.html5Mode(true);
 
     toastr.options = {
-      positionClass: "toast-bottom-full-width"
+      positionClass: 'toast-bottom-full-width'
     };
   }
 
-  return config
+  return config;
 });

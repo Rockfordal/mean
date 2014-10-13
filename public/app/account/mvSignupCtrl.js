@@ -1,7 +1,8 @@
 define([], function () {
 
   function mvSignupCtrl(mvNotifier, $location, mvAuth) {
-    vm = this;
+    var vm = this;
+
     vm.signup = function () {
       var newUserData = {
         username:  vm.email,
@@ -15,8 +16,8 @@ define([], function () {
         $location.path('/');
       }, function (reason) {
         mvNotifier.error(reason);
-      })
-    }
+      });
+    };
   }
 
   return mvSignupCtrl;
