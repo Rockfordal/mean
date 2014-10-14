@@ -18,7 +18,7 @@
     </div>
     <div class="navbar-collapse collapse" data-ng-controller="mvNavbarCtrl as navbar">
       <ul class="nav navbar-nav" data-ng-repeat="item in navbar.items | orderBy:ordering">
-        <li data-ng-class="{active: (navbar.location == item.url)}">
+        <li data-ng-class="{active: (navbar.location == item.url)}" ng-cloak>
           <a data-ui-sref="{{item.name}}">{{item.text}}</a>
         </li>
       </ul>
