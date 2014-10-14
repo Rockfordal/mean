@@ -1,0 +1,31 @@
+<h1>Todo's</h1>
+
+<div data-ng-repeat="todo in vm.filttodos">
+  {{todo.name}} {{todo.text}}
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <pagination boundary-links="true"
+                ng-change="vm.pageChanged()"
+                total-items="vm.totalItems"
+                items-per-page="vm.itemsPerPage"
+                ng-model="vm.currentPage"
+                max-size="vm.maxPagesToShow"
+                class="pagination-small"
+                previous-text="Prev"
+                next-text="Next"
+                first-text="First"
+                last-text="Last">
+    </pagination>
+  </div>
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input data-ng-model="vm.searchText" data-ng-change="vm.pageChanged()" placeholder="Sök.." class="form-control" autofocus/>
+      <br/>
+    </div>
+  </div>
+</div>
+
+{{vm.itemsPerPage}}/{{vm.totalItems}}
+

@@ -6,6 +6,20 @@ var auth = require('./auth'),
 
 module.exports = function(app) {
 
+  function getTodos(_, res) {
+    var collection = [
+      {name: 'Diska', text: 'mja'},
+      {name: 'Piska', text: ''},
+      {name: 'aiska', text: ''},
+      {name: 'biska', text: ''},
+      {name: 'ciska', text: ''},
+      {name: 'kiska', text: ''},
+      {name: 'Fiska', text: ''}
+    ];
+    res.send(collection);
+  }
+
+  app.get('/api/todos', getTodos);
   app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
   app.post('/api/users', users.createUser);
   app.put('/api/users', users.updateUser);

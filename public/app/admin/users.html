@@ -1,7 +1,37 @@
 <div class="container">
   <table class="table">
-    <tr ng-repeat="user in vm.users">
+    <tr>
+      <th>Namn</th>
+      <th></th>
+    </tr>
+    <tr data-ng-repeat="user in vm.filtusers">
       <td>{{user.firstName + ' ' + user.lastName}}</td>
+      <td><a class="btn btn-danger" ui-sref="remove($index)">Radera</a></td>
     </tr>
   </table>
+
+  <a class="btn btn-primary" ng-click="vm.create()">Ny användare</a>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <pagination boundary-links="true"
+                  ng-change="vm.pageChanged()"
+                  total-items="vm.totalItems"
+                  items-per-page="vm.itemsPerPage"
+                  ng-model="vm.currentPage"
+                  max-size="vm.maxPagesToShow"
+                  class="pagination-small"
+                  previous-text="Prev"
+                  next-text="Next"
+                  first-text="First"
+                  last-text="Last">
+      </pagination>
+    </div>
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input data-ng-model="vm.searchText" data-ng-change="vm.pageChanged()" placeholder="Sök.." class="form-control" autofocus/>
+      </div>
+    </div>
+  </div>
+  <!--{{vm.itemsPerPage}}/{{vm.totalItems}}-->
 </div>

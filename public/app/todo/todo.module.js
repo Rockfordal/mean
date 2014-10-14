@@ -1,18 +1,21 @@
 define([
   'app',
-  'test/mvTestCtrl'
+  'todo/mvTodo',
+  'todo/mvTodoCtrl'
 
-], function (app, mvTestCtrl) {
+], function (app, mvTodo, mvTodoCtrl) {
 
   app
-    .controller('mvTestCtrl', mvTestCtrl)
+    .factory('mvTodo', mvTodo)
+    .controller('mvTodoCtrl', mvTodoCtrl)
     .config(function ($stateProvider) {
       $stateProvider
-        .state('test', {
-          url:         '/test',
-          templateUrl: '/app/test/test.html',
-          controller:  'mvTestCtrl',
-          label: 'Test'
+        .state('todo', {
+          url:         '/todo',
+          templateUrl: '/app/todo/todo.html',
+          controller:  'mvTodoCtrl',
+          controllerAs:  'vm',
+          label: 'Todo'
         });
     });
 //    .run(routeConfig);
