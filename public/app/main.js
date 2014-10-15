@@ -9,6 +9,8 @@ require.config({
     uiBootstrap: '../vendor/angular-bootstrap/ui-bootstrap-tpls.min',
     jquery : '../vendor/jquery/dist/jquery.min',
     toastr: '../vendor/toastr/toastr.min',
+    angularJwt: '../vendor/angular-jwt/dist/angular-jwt.min',
+    localStorage: '../vendor/angular-local-storage/dist/angular-local-storage.min',
     uiUtils: '/vendor/ui-utils/ui-utils.min'
   },
 
@@ -20,16 +22,14 @@ require.config({
     uiRouter: { deps: ['angular'] },
     uiBootstrap: { deps: ['angular'] },
     uiUtils: { deps: ['angular'] },
+    localStorage: { deps: ['angular'] },
+    angularJwt: { deps: ['angular']},
     ngResource: { deps: ['angular']}
   },
 
   priority: [
-    'uiRouter',
     'angular',
-    'uiBootstrap',
     'app',
-    'ngResource',
-    'account/index'
   ]
 });
 
@@ -37,6 +37,8 @@ require([
     'angular',
     'app',
     'ngResource',
+    'localStorage',
+    'angularJwt',
     'core/core.module',
     'account/account.module',
     'home/home.module',

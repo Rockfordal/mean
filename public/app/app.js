@@ -12,6 +12,8 @@
     'ui.router',
     'ui.bootstrap',
     'ui.keypress',
+    'angular-jwt',
+    'LocalStorageModule',
     'ngResource'
   ]);
 
