@@ -31,7 +31,10 @@ module.exports = function(app, config) {
     res.render('../../public/app/' + req.params);
   });
 
-  app.post('/login', auth.authenticate);
+  app.post('/login', function(req, res, next) {
+    auth.authenticate(req, res, next, config);
+  });
+
   app.post('/logout', function (req, res) {
     req.logout();
     res.end();
