@@ -1,6 +1,6 @@
 define([], function () {
 
-  function mvNavbarLoginCtrl(mvIdentity, mvNotifier, mvAuth, $location) {
+  function mvLoginCtrl(mvIdentity, mvNotifier, mvAuth, $location) {
     var vm = this;
     vm.identity = mvIdentity;
 
@@ -24,5 +24,5 @@ define([], function () {
     };
   }
 
-  return mvNavbarLoginCtrl;
+  return mvLoginCtrl;
 });
