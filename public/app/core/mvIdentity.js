@@ -1,12 +1,19 @@
-define([], function () {
+define(['angular'], function (angular) {
 
-  function mvIdentity($window, mvUser) {
+  function mvIdentity($window, mvUser, localStorageService) {
 
     var service = {
-      currentUser:     currentUser(),
+      currentUser:     getCurrentUser(),
       isAuthenticated: isAuthenticated,
-      isAuthorized:    isAuthorized
+      isAuthorized:    isAuthorized,
+      clearUser:       clearUser
     };
+
+    function clearUser (){
+      this.currentUser = undefined;
+      localStorageService.remove('user');
+      localStorageService.remove('token');
+    }
 
     function isAuthenticated() {
       return !!this.currentUser;
@@ -16,11 +23,13 @@ define([], function () {
       return !!this.currentUser && this.currentUser.roles.indexOf(role) > -1;
     }
 
-    function currentUser() {
+    function getCurrentUser() {
       var cu;
-      if (!!$window.mvdata.bootstrappedUser) {
+      var user  = localStorageService.get('user');
+
+      if (!!user) {
         cu = new mvUser();
-        angular.extend(cu, $window.mvdata.bootstrappedUser);
+        angular.extend(cu, user);
       }
       return cu;
     }
