@@ -3,6 +3,7 @@ define([
     'account/mvLoginCtrl',
     'account/mvUser',
     'account/mvAuth',
+    'account/mvAuthInterceptor',
     'account/mvProfileCtrl',
     'account/mvSignupCtrl'
   ],
@@ -11,6 +12,7 @@ define([
             mvLoginCtrl,
             mvUser,
             mvAuth,
+            mvAuthInterceptor,
             mvProfileCtrl,
             mvSignupCtrl
             ) {
@@ -36,9 +38,13 @@ define([
       })
       .factory('mvAuth', mvAuth)
       .factory('mvUser', mvUser)
+      .factory('authInterceptor', mvAuthInterceptor)
       .controller('mvLoginCtrl', mvLoginCtrl)
       .controller('mvProfileCtrl', mvProfileCtrl)
-      .controller('mvSignupCtrl', mvSignupCtrl);
+      .controller('mvSignupCtrl', mvSignupCtrl)
+      .config(function ($httpProvider) {
+        $httpProvider.interceptors.push('authInterceptor');
+    });
 
     return app;
 
