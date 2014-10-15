@@ -2,9 +2,9 @@ var auth = require('./auth'),
   users = require('../controllers/users'),
   mongoose = require('mongoose'),
   User = mongoose.model('User'),
-  data = { mvdata: {} };
+  expressJwt = require('express-jwt');
 
-module.exports = function(app) {
+module.exports = function(app, config) {
 
   function getTodos(_, res) {
     var collection = [
@@ -18,6 +18,9 @@ module.exports = function(app) {
     ];
     res.send(collection);
   }
+
+  // We are going to protect /api routes with JWT
+  app.use('/api', expressJwt({secret: config.secret}).unless({path: ['/api/todo']}));
 
   app.get('/api/todos', getTodos);
   app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
@@ -35,7 +38,6 @@ module.exports = function(app) {
   });
 
   app.get('*', function(req, res) {
-    data.mvdata.bootstrappedUser = req.user;
-    res.render('index.ejs', data);
+    res.render('index.ejs');
   });
 };
