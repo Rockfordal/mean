@@ -1,28 +1,17 @@
 var auth = require('./auth'),
   users = require('../controllers/users'),
+  todos = require('../controllers/todos'),
   mongoose = require('mongoose'),
   User = mongoose.model('User'),
+  Todo = mongoose.model('Todo'),
   expressJwt = require('express-jwt');
 
 module.exports = function(app, config) {
 
-  function getTodos(_, res) {
-    var collection = [
-      {name: 'Diska', text: 'mja'},
-      {name: 'Piska', text: ''},
-      {name: 'aiska', text: ''},
-      {name: 'biska', text: ''},
-      {name: 'ciska', text: ''},
-      {name: 'kiska', text: ''},
-      {name: 'Fiska', text: ''}
-    ];
-    res.send(collection);
-  }
-
-  // We are going to protect /api routes with JWT
+  // Secure /api routes with JWT
   app.use('/api', expressJwt({secret: config.secret}).unless({path: ['/api/todo']}));
 
-  app.get('/api/todos', getTodos);
+  app.get('/api/todos', todos.getTodos);
   app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
   app.post('/api/users', users.createUser);
   app.put('/api/users', users.updateUser);
