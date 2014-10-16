@@ -14,6 +14,7 @@
     'ui.keypress',
     'angular-jwt',
     'LocalStorageModule',
+    'restmod',
     'ngResource'
   ]);
 

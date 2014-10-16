@@ -11,6 +11,7 @@ require.config({
     toastr: '../vendor/toastr/toastr.min',
     angularJwt: '../vendor/angular-jwt/dist/angular-jwt.min',
     localStorage: '../vendor/angular-local-storage/dist/angular-local-storage.min',
+    restmod: '../vendor/angular-restmod/dist/angular-restmod-bundle.min',
     uiUtils: '/vendor/ui-utils/ui-utils.min'
   },
 
@@ -23,6 +24,7 @@ require.config({
     uiBootstrap: { deps: ['angular'] },
     uiUtils: { deps: ['angular'] },
     localStorage: { deps: ['angular'] },
+    restmod: { deps: ['angular'] },
     angularJwt: { deps: ['angular']},
     ngResource: { deps: ['angular']}
   },
@@ -37,6 +39,7 @@ require([
     'angular',
     'app',
     'ngResource',
+    'restmod',
     'localStorage',
     'angularJwt',
     'core/core.module',
