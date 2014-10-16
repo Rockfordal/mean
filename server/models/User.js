@@ -29,10 +29,10 @@ function createDefaultUsers() {
       hash = encrypt.hashPwd(salt, 'admin');
       var admin = {firstName: 'Admin', lastName: 'User', username: 'admin', salt: salt, hashed_pwd: hash, roles: ['admin']};
       User.create(admin, function (err) {
-        if (err) console.log('fel: ' + err);
+        if (err) { console.log('fel: ' + err); }
       });
     }
-  })
+  });
 }
 
 exports.createDefaultUsers = createDefaultUsers;
