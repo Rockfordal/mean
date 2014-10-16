@@ -2,15 +2,16 @@ define([], function () {
 
   function mvTodoCtrl(mvTodo, $filter) {
     var vm = this;
+    vm.todos = mvTodo.$collection();
     vm.currentPage = 1;
     vm.itemsPerPage = 5;
     vm.maxPagesToShow = 6;
     getTodos();
 
     function getTodos() {
-      mvTodo.query(function (todos) {
-        vm.totalItems = todos.length;
-        vm.todos = todos;
+      vm.todos.$fetch();
+      vm.todos.$then(function () {
+        vm.totalItems = vm.todos.length;
         vm.pageChanged();
       });
     }

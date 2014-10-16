@@ -1,8 +1,15 @@
-<h1>Todo's</h1>
+<h1>Att göra</h1>
 
-<div data-ng-repeat="todo in vm.filttodos">
-  {{todo.name}} {{todo.text}}
-</div>
+<table class="table">
+  <tr>
+    <th>Namn</th>
+    <th>Beskrivning</th>
+  </tr>
+  <tr data-ng-repeat="todo in vm.filttodos">
+    <td>{{todo.name}}</td>
+    <td>{{todo.text}}</td>
+  </tr>
+</table>
 
 <div class="row">
   <div class="col-lg-6">
@@ -21,7 +28,8 @@
   </div>
   <div class="col-lg-6">
     <div class="input-group">
-      <input data-ng-model="vm.searchText" data-ng-change="vm.pageChanged()" placeholder="Sök.." class="form-control" autofocus/>
+      <input data-ng-model="vm.searchText" data-ng-change="vm.pageChanged()" placeholder="Sök.." class="form-control"
+             autofocus/>
       <br/>
     </div>
   </div>
