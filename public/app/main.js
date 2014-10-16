@@ -25,8 +25,8 @@ require.config({
     uiUtils: { deps: ['angular'] },
     localStorage: { deps: ['angular'] },
     restmod: { deps: ['angular'] },
-    angularJwt: { deps: ['angular']},
-    ngResource: { deps: ['angular']}
+    angularJwt: { deps: ['angular'] },
+    ngResource: { deps: ['angular'] }
   },
 
   priority: [
