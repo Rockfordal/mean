@@ -1,7 +1,7 @@
 define(['toastr'], function (toastr) {
 
   function config($locationProvider) {
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode({enabled: true, requireBase: false});
 
     toastr.options = {
       positionClass: 'toast-bottom-full-width'
