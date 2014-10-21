@@ -1,0 +1,39 @@
+  <div class="well">
+    <form class="form-horizontal" action="" name="signupForm">
+      <fieldset>
+        <legend>Ny användare</legend>
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="email">E-post</label>
+          <div class="col-md-10">
+            <input class="form-control" type="email" name="email" placeholder="E-post" data-ng-model="signup.email" required autofocus />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="password">Lösen</label>
+          <div class="col-md-10">
+            <input class="form-control" type="password" name="password" placeholder="password" data-ng-model="signup.password" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="fname">Förnamn</label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" name="fname" placeholder="Förnamn" data-ng-model="signup.fname" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="lname">Efternamn</label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" name="lname" placeholder="Efternamn" data-ng-model="signup.lname" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-4 col-md-offset-2">
+            <div class="pull-right">
+              <button class="btn btn-primary" data-ng-click="signup.signup()" data-ng-disabled="signupForm.$invalid">Registrera</button>
+              <a class="btn btn-default" href="/">Avbryt</a>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
