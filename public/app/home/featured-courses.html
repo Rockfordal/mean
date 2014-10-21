@@ -2,8 +2,8 @@
   <div class="panel-heading text-center">Övrigt</div>
   <div class="panel-body">
     <div class="row" data-ng-repeat="course in courses | filter: {featured:true}">
-      <div class="col-md-3">{{course.published | date:'MMM d'}}</div>
-      <div class="col-md-3">{{course.name}}</div>
+      <div class="col-md-3">{{home.course.published | date:'MMM d'}}</div>
+      <div class="col-md-3">{{home.course.name}}</div>
     </div>
   </div>
 </div>

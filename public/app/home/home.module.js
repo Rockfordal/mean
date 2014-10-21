@@ -9,7 +9,9 @@ define(['app', 'home/mvHomeCtrl'],
           url:         '/',
           templateUrl: '/app/home/home.html',
           controller:  'mvHomeCtrl',
-          label: 'Hem'
+          controllerAs: 'home',
+          label: 'Hem',
+          labelprio: 10
         });
     })
     .controller('mvHomeCtrl', mvHomeCtrl);
