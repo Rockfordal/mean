@@ -15,7 +15,8 @@ define([
           templateUrl: '/app/todo/todo.html',
           controller:  'mvTodoCtrl',
           controllerAs:  'vm',
-          label: 'Todo'
+          label: 'Att göra',
+          labelprio: 999
         });
     });
 //    .run(routeConfig);
