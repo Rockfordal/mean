@@ -1,13 +1,18 @@
 define([], function () {
 
-  function mvUser($resource) {
-    var UserResource = $resource('/api/users/:id', {_id: '@id'}, {
-      update: { method: 'PUT', isArray: false }
-    });
+  function mvUser(restmod) {
+    var UserResource = restmod.model('/apiusers');
 
-    UserResource.prototype.isAdmin = function () {
-      return this.roles && this.roles.indexOf('admin') > -1;
-    };
+    //noinspection JSUnusedGlobalSymbols
+    UserResource.mix({
+      $extend: {
+        Record: {
+          isAdmin: function () {
+            return this.roles && this.roles.indexOf('admin') > -1;
+          }
+        }
+      }
+    });
 
     return UserResource;
   }

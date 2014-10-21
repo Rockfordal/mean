@@ -4,22 +4,22 @@
       <th>Namn</th>
       <th></th>
     </tr>
-    <tr data-ng-repeat="user in vm.filtusers">
+    <tr data-ng-repeat="user in vm.users">
       <td>{{user.firstName + ' ' + user.lastName}}</td>
-      <td><a class="btn btn-danger" ui-sref="remove($index)">Radera</a></td>
+      <td><a class="btn btn-danger" data-ng-click="vm.remove($index)">Radera</a></td>
     </tr>
   </table>
 
-  <a class="btn btn-primary" ng-click="vm.create()">Ny användare</a>
+  <a class="btn btn-primary" data-ng-click="vm.create()">Ny användare</a>
 
   <div class="row">
     <div class="col-lg-6">
-      <pagination boundary-links="true"
-                  ng-change="vm.pageChanged()"
-                  total-items="vm.totalItems"
+      <pagination total-items="vm.totalItems"
                   items-per-page="vm.itemsPerPage"
                   ng-model="vm.currentPage"
-                  max-size="vm.maxPagesToShow"
+                  ng-change="vm.pageChanged()"
+                  max-size="vm.maxPageToShow"
+                  boundary-links="true"
                   class="pagination-small"
                   previous-text="Prev"
                   next-text="Next"
