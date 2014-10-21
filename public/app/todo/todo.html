@@ -1,36 +1,18 @@
-<h1>Att göra</h1>
+<div class="container">
+  <h1>Att göra</h1>
 
-<table class="table">
-  <tr>
-    <th>Namn</th>
-    <th>Beskrivning</th>
-  </tr>
-  <tr data-ng-repeat="todo in vm.filttodos">
-    <td>{{todo.name}}</td>
-    <td>{{todo.text}}</td>
-  </tr>
-</table>
+  <table class="table">
+    <tr>
+      <th>Namn</th>
+      <th>Beskrivning</th>
+    </tr>
+    <tr data-ng-repeat="todo in vm.todos">
+      <td>{{todo.name}}</td>
+      <td>{{todo.text}}</td>
+    </tr>
+  </table>
 
-<div class="row">
-  <div class="col-lg-6">
-    <pagination boundary-links="true"
-                ng-change="vm.pageChanged()"
-                total-items="vm.totalItems"
-                items-per-page="vm.itemsPerPage"
-                ng-model="vm.currentPage"
-                max-size="vm.maxPagesToShow"
-                class="pagination-small"
-                previous-text="Prev"
-                next-text="Next"
-                first-text="First"
-                last-text="Last">
-    </pagination>
-  </div>
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input data-ng-model="vm.searchText" data-ng-change="vm.pageChanged()" placeholder="Sök.." class="form-control"
-             autofocus/>
-      <br/>
-    </div>
+  <div class="row">
+    <button class="btn btn-success" data-ng-click="vm.flasha()">Flash</button>
   </div>
 </div>
