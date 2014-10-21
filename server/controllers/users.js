@@ -1,6 +1,17 @@
 var User = require('mongoose').model('User'),
   encrypt = require('../utilities/encryption');
 
+  // Find User by id
+
+exports.user = function(req, res, next, id) {
+  User.load(id, function(err, user) {
+    if (err) return next(err);
+    if (!user) return next(new Error('Failed to load user ' + id));
+    req.user = user;
+    next();
+  });
+};
+
 exports.getUsers = function (req, res) {
   User.find({}).exec(function (err, collection) {
     res.send(collection);
@@ -44,5 +55,21 @@ exports.updateUser = function (req, res) {
   req.user.save(function (err) {
     if (err) { res.status(400); return res.send({reason: err.toString()})};
     res.send(req.user);
+  });
+};
+
+  // Delete user
+
+exports.destroy = function(req, res) {
+  var user = req.user;
+
+  user.remove(function(err) {
+    if (err) {
+      return res.json(500, {
+        error: 'Cannot delete the user'
+      });
+    }
+    res.json(user);
+
   });
 };

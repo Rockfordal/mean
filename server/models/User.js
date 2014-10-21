@@ -19,6 +19,15 @@ var mongoose = require('mongoose'),
     }
   };
 
+/** Statics **/
+
+userSchema.statics.load = function(id, cb) {
+  this.findOne({
+    _id: id
+  }).exec(cb);
+//  }).populate('user', 'name username').exec(cb);
+};
+
 var User = mongoose.model('User', userSchema);
 
 function createDefaultUsers() {
