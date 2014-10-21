@@ -15,7 +15,6 @@
     'angular-jwt',
     'LocalStorageModule',
     'restmod',
-    'ngResource'
   ]);
 
   app.run(function ($rootScope, $state, mvNotifier) {

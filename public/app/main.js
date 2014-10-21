@@ -38,7 +38,6 @@ require.config({
 require([
     'angular',
     'app',
-    'ngResource',
     'restmod',
     'localStorage',
     'angularJwt',
