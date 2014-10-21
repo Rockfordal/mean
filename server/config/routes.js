@@ -11,10 +11,19 @@ module.exports = function(app, config) {
   // Secure /api routes with JWT
   app.use('/api', expressJwt({secret: config.secret}).unless({path: ['/api/todo']}));
 
+  app.get('/apiusers', expressJwt({secret: config.secret}));
+  app.put('/apiusers', expressJwt({secret: config.secret}));
+  app.delete('/apiusers', expressJwt({secret: config.secret}));
+
   app.get('/api/todos', todos.getTodos);
-  app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
-  app.post('/api/users', users.createUser);
-  app.put('/api/users', users.updateUser);
+
+  //Users
+  app.get('/apiusers', auth.requiresRole('admin'), users.getUsers);
+  app.put('/apiusers', users.updateUser);
+  app.post('/apiusers', users.createUser);
+  app.post('/reguser', users.createUser);
+  app.delete('/apiusers/:userId', users.destroy);
+  app.param('userId', users.user);
 
   app.get('/partials/*', function(req, res) {
     res.render('../../public/app/' + req.params);
@@ -32,4 +41,5 @@ module.exports = function(app, config) {
   app.get('*', function(req, res) {
     res.render('index.ejs');
   });
+
 };
